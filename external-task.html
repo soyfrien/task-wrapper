@@ -1,0 +1,13 @@
+<p>The task will be in this iframe while the page listens for the close event.</p>
+<iframe id="Survey" width="100%" height="100%" ></iframe>
+
+<script>
+    var externalTaskUrl = 'https://bing.com';
+    var afterTaskUrl = 'https://google.com';
+    document.getElementById("Survey").src = externalTaskUrl;
+
+    window.addEventListener('beforeunload', function (event) {
+        opener.location.href = afterTaskUrl;
+        close();
+    });
+</script>
